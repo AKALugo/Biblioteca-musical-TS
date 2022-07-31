@@ -857,10 +857,6 @@ export class Interfaz {
       },
     }]).then((answers) => {  
       const generos: string[] = answers["generos"].split(' ');
-  
-      if (this.mirarGeneros(generos, answers["autor"]) !== generos.length) {
-        throw new Error("¡¡¡¡¡ERROR: Géneros incorrectos!!!!!");
-      }
       
       const grupo = new Grupo({nombre: answers["nombre"], artistas: [], fechaCreacion: answers["fecha"],
         generos: generos, albumes: new Coleccion<Album>(), canciones: new Coleccion<Cancion>(), oyentes: answers["oyentes"]});
@@ -913,10 +909,6 @@ export class Interfaz {
       },
     }]).then((answers) => {  
       const generos: string[] = answers["generos"].split(' ');
-
-      if (this.mirarGeneros(generos, answers["autor"]) !== generos.length) {
-        throw new Error("¡¡¡¡¡ERROR: Géneros incorrectos!!!!!");
-      }
 
       const artista = new Artista({nombre: answers["nombre"], grupos: answers["grupos"].split(' '), 
         generos: generos, albumes: new Coleccion<Album>(), canciones: new Coleccion<Cancion>(), oyentes: parseInt(answers["oyentes"])});
